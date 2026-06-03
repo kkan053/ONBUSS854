@@ -1,0 +1,125 @@
+<div class="canvas-interactive" style="font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 800px; height: 600px; margin: 0 auto; color: #5F727A; padding: 25px; background: #fafbfc; border-radius: 12px; box-shadow: 0 4px 15px rgba(95, 114, 122, 0.08); border: 1px solid rgba(155, 174, 183, 0.3); box-sizing: border-box; display: flex; flex-direction: column;">
+    <style>
+        .canvas-interactive input[type="radio"] { display: none; }
+        
+        .carousel-container { position: relative; flex-grow: 1; width: 100%; overflow: hidden; }
+        
+        .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s ease-in-out; pointer-events: none; overflow-y: auto; padding-right: 15px; box-sizing: border-box; }
+        
+        .canvas-interactive #slide1:checked ~ .carousel-container .slide-1,
+        .canvas-interactive #slide2:checked ~ .carousel-container .slide-2,
+        .canvas-interactive #slide3:checked ~ .carousel-container .slide-3,
+        .canvas-interactive #slide4:checked ~ .carousel-container .slide-4 { opacity: 1; pointer-events: auto; }
+        
+        .carousel-nav { display: flex; justify-content: center; gap: 12px; margin-top: 15px; }
+        
+        .nav-dot { width: 16px; height: 16px; border-radius: 50%; background: #C4D2D8; cursor: pointer; transition: background 0.3s ease; border: 2px solid transparent; }
+        
+        .nav-dot:hover { background: #9BAEB7; }
+        
+        .canvas-interactive #slide1:checked ~ .carousel-nav label[for="slide1"],
+        .canvas-interactive #slide2:checked ~ .carousel-nav label[for="slide2"],
+        .canvas-interactive #slide3:checked ~ .carousel-nav label[for="slide3"],
+        .canvas-interactive #slide4:checked ~ .carousel-nav label[for="slide4"] { background: #5F727A; box-shadow: 0 0 0 3px rgba(155, 174, 183, 0.3); }
+        
+        .carousel-slide h2 { color: #5F727A; margin-top: 0; font-size: 22px; border-bottom: 2px solid #C4D2D8; padding-bottom: 8px; margin-bottom: 15px; }
+        
+        .carousel-slide h3 { color: #5F727A; font-size: 18px; margin-top: 0; margin-bottom: 10px; }
+        
+        .carousel-slide p { font-size: 16px; line-height: 1.5; margin-bottom: 12px; margin-top: 0; }
+        
+        .carousel-figure { margin: 15px 0; text-align: center; background: rgba(196, 210, 216, 0.15); border: 1px solid #C4D2D8; border-radius: 8px; padding: 12px; }
+        
+        .carousel-figure img { max-width: 100%; max-height: 220px; object-fit: cover; border-radius: 6px; border: 1px solid #9BAEB7; }
+        
+        .carousel-figcaption { font-size: 14px; margin-top: 10px; color: #5F727A; }
+        
+        .carousel-figcaption a { color: #5F727A; text-decoration: underline; font-weight: bold; }
+        
+        .carousel-figcaption a:hover { color: #9BAEB7; }
+        
+        .reflect-box { background: rgba(95, 114, 122, 0.05); border-left: 4px solid #5F727A; padding: 15px; border-radius: 0 8px 8px 0; margin-top: 15px; }
+        
+        .reflect-box ul { margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.5; color: #5F727A; }
+        
+        .reflect-box li { margin-bottom: 8px; }
+        
+        .reflect-box li:last-child { margin-bottom: 0; }
+        
+        .carousel-slide::-webkit-scrollbar { width: 6px; }
+        
+        .carousel-slide::-webkit-scrollbar-track { background: rgba(196, 210, 216, 0.3); border-radius: 3px; }
+        
+        .carousel-slide::-webkit-scrollbar-thumb { background: #9BAEB7; border-radius: 3px; }
+    </style>
+
+    <input type="radio" name="carousel" id="slide1" checked>
+    <input type="radio" name="carousel" id="slide2">
+    <input type="radio" name="carousel" id="slide3">
+    <input type="radio" name="carousel" id="slide4">
+
+    <div class="carousel-container">
+        <div class="carousel-slide slide-1">
+            <h2>The scenario</h2>
+            <p>Health psychology studies these reciprocal processes across the lifespan. To see what this means in practice, consider two people who both receive the same diagnosis of hypertension.</p>
+            <p>Both are prescribed the same medication. Both are advised to reduce salt intake and increase physical activity.</p>
+            <p>Six months later, one person's blood pressure is well controlled. The other remains high.</p>
+            
+            <figure class="carousel-figure">
+                <img src="https://images.pexels.com/photos/13111781/pexels-photo-13111781.jpeg" alt="Several medicine containers and blister packs of tablets sit on a wooden surface beside a blood pressure cuff and stethoscope.">
+                <figcaption class="carousel-figcaption">
+                    <strong>Figure.</strong> The same diagnosis and treatment can lead to different health outcomes over time.<br>(Source: <a href="https://images.pexels.com/photos/13111781/pexels-photo-13111781.jpeg" target="_blank">Pexels</a>)
+                </figcaption>
+            </figure>
+
+            <p>From a purely biomedical perspective, this difference is puzzling. The diagnosis is the same. The treatment is the same.</p>
+            <p>From a biopsychosocial and lifespan perspective, the difference is easier to understand.</p>
+        </div>
+
+        <div class="carousel-slide slide-2">
+            <h2>Yanis</h2>
+            <p>Yanis grew up in a household where exercise was routine and meals were home-prepared. He believes the condition is manageable, feels confident about making lifestyle changes and has supportive family members who walk with him in the evenings. His workplace allows flexible hours, making regular exercise possible.</p>
+            
+            <figure class="carousel-figure">
+                <img src="https://images.pexels.com/photos/33769426/pexels-photo-33769426.jpeg" alt="Two adults and three young children walk together along a sunlit path lined with trees at sunset. The adults carry younger children while another child walks between them holding hands, creating a warm scene that suggests family connection, support and shared well-being.">
+                <figcaption class="carousel-figcaption">
+                    <strong>Figure.</strong> Supportive environments and relationships make healthy behaviours easier to maintain.<br>(Source: <a href="https://images.pexels.com/photos/33769426/pexels-photo-33769426.jpeg" target="_blank">Pexels</a>)
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="carousel-slide slide-3">
+            <h2>Mei</h2>
+            <p>Mei has experienced long-term financial strain and shift work since early adulthood. She feels overwhelmed, believes stress is unavoidable and works long hours with limited access to safe spaces for physical activity. Medication is often forgotten during busy shifts. Years of accumulated stress and limited resources shape how she responds to the diagnosis.</p>
+            
+            <figure class="carousel-figure">
+                <img src="https://images.pexels.com/photos/4270365/pexels-photo-4270365.jpeg" alt="A healthcare worker in scrubs sits slumped on a sofa in a waiting area, head tilted back and eyes closed. Their posture and expression suggest exhaustion, stress and emotional fatigue after long work demands.">
+                <figcaption class="carousel-figcaption">
+                    <strong>Figure.</strong> Ongoing stress and competing demands can make managing health more difficult.<br>(Source: <a href="https://images.pexels.com/photos/4270365/pexels-photo-4270365.jpeg" target="_blank">Pexels</a>)
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="carousel-slide slide-4">
+            <h2>Why the differences?</h2>
+            <p>The biology at the point of diagnosis may be similar. The life context is not.</p>
+            <p>Health psychology asks how early experiences, accumulated stress exposure, beliefs, coping patterns, behaviour and social environments interact over time to shape health outcomes. It examines not just the disease, but also the trajectory that led to it and the conditions that influence what happens next.</p>
+            
+            <div class="reflect-box">
+                <h3>Reflect</h3>
+                <p>Take a moment to think about the scenario:</p>
+                <ul>
+                    <li>What differences do you notice between Yanis and Mei beyond their diagnosis?</li>
+                    <li>How might these differences help explain why they experience different health outcomes?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-nav">
+        <label for="slide1" class="nav-dot" title="Slide 1"></label>
+        <label for="slide2" class="nav-dot" title="Slide 2"></label>
+        <label for="slide3" class="nav-dot" title="Slide 3"></label>
+        <label for="slide4" class="nav-dot" title="Slide 4"></label>
+    </div>
+</div>
