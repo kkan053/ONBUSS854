@@ -1,79 +1,235 @@
-<div class="interactive-wrapper" style="font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 1000px; margin: 40px auto; color: #5F727A; padding: 40px 30px; background: #fafbfc; border-radius: 12px; box-shadow: 0 4px 15px rgba(95, 114, 122, 0.08); border: 1px solid rgba(155, 174, 183, 0.3); font-size: 18px; display: flex; gap: 30px; align-items: flex-start;">
+<div class="interactive-wrapper" style="font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 960px; margin: 40px auto; color: #5F727A; padding: 40px 30px; background: #fafbfc; border-radius: 12px; box-shadow: 0 4px 15px rgba(95, 114, 122, 0.08); border: 1px solid rgba(155, 174, 183, 0.3); font-size: 18px;">
+  <input type="radio" id="cat-internal" name="category-group" checked hidden>
+  <input type="radio" id="cat-primary" name="category-group" hidden>
+  <input type="radio" id="cat-secondary" name="category-group" hidden>
+  <input type="radio" id="cat-non" name="category-group" hidden>
+
+  <div class="category-grid">
+    <label for="cat-internal" class="category-tab">Internal</label>
+    <label for="cat-primary" class="category-tab">Primary</label>
+    <label for="cat-secondary" class="category-tab">Secondary</label>
+    <label for="cat-non" class="category-tab">Non-stakeholders</label>
+  </div>
+
+  <div class="table-container">
+    
+    <div class="data-panel panel-internal">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Stakeholder group</th>
+            <th style="width: 35%;">Example in Meridian context</th>
+            <th style="width: 40%;">Why they matter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Owners</strong></td>
+            <td>Shareholders</td>
+            <td>Provide capital, expect returns, influence governance and long-term direction</td>
+          </tr>
+          <tr>
+            <td><strong>Employees</strong></td>
+            <td>Staff, managers, engineers, customer service teams</td>
+            <td>Deliver the organisation's work and shape service quality, culture and performance</td>
+          </tr>
+          <tr>
+            <td><strong>Focal entity</strong></td>
+            <td>Meridian Energy</td>
+            <td>The organisation at the centre of the stakeholder map</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="data-panel panel-primary">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Stakeholder group</th>
+            <th style="width: 35%;">Example in Meridian context</th>
+            <th style="width: 40%;">Why they matter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Clients or customers</strong></td>
+            <td>Households and business electricity customers</td>
+            <td>Purchase services and directly affect revenue and reputation</td>
+          </tr>
+          <tr>
+            <td><strong>Suppliers</strong></td>
+            <td>Equipment suppliers, IT providers, maintenance contractors</td>
+            <td>Provide critical goods and services needed for operations</td>
+          </tr>
+          <tr>
+            <td><strong>Regulators</strong></td>
+            <td>Commerce Commission, Electricity Authority, WorkSafe</td>
+            <td>Set and enforce rules that shape how Meridian operates</td>
+          </tr>
+          <tr>
+            <td><strong>Local community</strong></td>
+            <td>Communities near hydro stations or wind farms</td>
+            <td>Are directly affected by Meridian's activities and may support or resist developments</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="data-panel panel-secondary">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Stakeholder group</th>
+            <th style="width: 35%;">Example in Meridian context</th>
+            <th style="width: 40%;">Why they matter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Media</strong></td>
+            <td>News outlets, business media, environmental journalists</td>
+            <td>Influence public perception and can amplify issues or achievements</td>
+          </tr>
+          <tr>
+            <td><strong>NGOs</strong></td>
+            <td>Environmental groups, consumer advocacy groups</td>
+            <td>May challenge, support or scrutinise company practices</td>
+          </tr>
+          <tr>
+            <td><strong>Suppliers' suppliers</strong></td>
+            <td>Manufacturers of turbines, cables, and infrastructure components</td>
+            <td>Affect supply chain stability and cost</td>
+          </tr>
+          <tr>
+            <td><strong>Natural environment</strong></td>
+            <td>Wider ecosystems beyond local sites</td>
+            <td>Affected by broader environmental impacts and sustainability choices</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="data-panel panel-non">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Stakeholder group</th>
+            <th style="width: 35%;">Example in Meridian context</th>
+            <th style="width: 40%;">Why they matter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Unrelated government</strong></td>
+            <td>Overseas governments with no operational link</td>
+            <td>No direct relationship or effect on Meridian</td>
+          </tr>
+          <tr>
+            <td><strong>Unrelated market peers</strong></td>
+            <td>Firms in unrelated industries</td>
+            <td>No direct role in Meridian's stakeholder environment</td>
+          </tr>
+          <tr>
+            <td><strong>Unaffected ecosystem</strong></td>
+            <td>Ecosystems not influenced by Meridian operations</td>
+            <td>No meaningful direct relationship</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
 
   <style>
-    .interactive-wrapper input[name="v-tab-group"] {
-      display: none;
-    }
-
-    .v-tabs-nav {
-      width: 35%;
+    .category-grid {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 12px;
+      justify-content: center;
+      margin-bottom: 30px;
     }
 
-    .v-tab-label {
+    .category-tab {
       background: #ffffff;
       border: 1px solid rgba(155, 174, 183, 0.4);
       color: #5F727A;
       padding: 14px 26px;
-      border-radius: 15px; /* Updated to 15px for consistent soft corners */
+      border-radius: 30px;
       font-size: 18px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 2px 4px rgba(95, 114, 122, 0.05);
       user-select: none;
-      line-height: 1.4;
     }
 
-    .v-tab-label:hover {
+    .category-tab:hover {
       border-color: #9BAEB7;
       background: rgba(155, 174, 183, 0.1);
     }
 
-    .v-tabs-content {
-      width: 65%;
+    .table-container {
       background: #ffffff;
       border: 1px solid rgba(155, 174, 183, 0.3);
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 6px 16px rgba(95, 114, 122, 0.06);
-      padding: 30px;
-      min-height: 250px;
+      min-height: 250px; 
     }
 
-    .v-tab-panel {
+    .data-panel {
       display: none;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .custom-table th {
+      background-color: #9BAEB7;
+      color: #ffffff;
+      padding: 18px 20px;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 2px solid #5F727A;
+    }
+
+    .custom-table td {
+      padding: 18px 20px;
+      font-size: 18px;
+      color: #5F727A;
+      border-bottom: 1px solid rgba(155, 174, 183, 0.3);
       line-height: 1.5;
     }
-    
-    .v-tab-panel p {
-        margin-top: 0;
-        margin-bottom: 1em;
-    }
-    
-    .v-tab-panel p:last-child {
-        margin-bottom: 0;
+
+    .custom-table tr:last-child td {
+      border-bottom: none;
     }
 
-    .interactive-wrapper #v-tab0:checked ~ .v-tabs-content #v-content0,
-    .interactive-wrapper #v-tab1:checked ~ .v-tabs-content #v-content1,
-    .interactive-wrapper #v-tab2:checked ~ .v-tabs-content #v-content2,
-    .interactive-wrapper #v-tab3:checked ~ .v-tabs-content #v-content3,
-    .interactive-wrapper #v-tab4:checked ~ .v-tabs-content #v-content4 {
-      display: block;
-      animation: fadeUp 0.4s ease-out forwards;
+    .custom-table tbody tr:hover {
+      background-color: rgba(155, 174, 183, 0.05);
     }
 
-    .interactive-wrapper #v-tab1:checked ~ .v-tabs-nav label[for="v-tab1"],
-    .interactive-wrapper #v-tab2:checked ~ .v-tabs-nav label[for="v-tab2"],
-    .interactive-wrapper #v-tab3:checked ~ .v-tabs-nav label[for="v-tab3"],
-    .interactive-wrapper #v-tab4:checked ~ .v-tabs-nav label[for="v-tab4"] {
+
+    .interactive-wrapper input[id="cat-internal"]:checked ~ .category-grid label[for="cat-internal"],
+    .interactive-wrapper input[id="cat-primary"]:checked ~ .category-grid label[for="cat-primary"],
+    .interactive-wrapper input[id="cat-secondary"]:checked ~ .category-grid label[for="cat-secondary"],
+    .interactive-wrapper input[id="cat-non"]:checked ~ .category-grid label[for="cat-non"] {
       background: #5F727A;
       color: #ffffff;
       border-color: #5F727A;
       box-shadow: 0 4px 10px rgba(95, 114, 122, 0.2);
+    }
+
+    .interactive-wrapper input[id="cat-internal"]:checked ~ .table-container .panel-internal,
+    .interactive-wrapper input[id="cat-primary"]:checked ~ .table-container .panel-primary,
+    .interactive-wrapper input[id="cat-secondary"]:checked ~ .table-container .panel-secondary,
+    .interactive-wrapper input[id="cat-non"]:checked ~ .table-container .panel-non {
+      display: block;
+      animation: fadeUp 0.4s ease-out forwards;
     }
 
     @keyframes fadeUp {
@@ -88,45 +244,4 @@
     }
   </style>
 
-  <input type="radio" name="v-tab-group" id="v-tab0" checked>
-  <input type="radio" name="v-tab-group" id="v-tab1">
-  <input type="radio" name="v-tab-group" id="v-tab2">
-  <input type="radio" name="v-tab-group" id="v-tab3">
-  <input type="radio" name="v-tab-group" id="v-tab4">
-
-  <div class="v-tabs-nav">
-      <label for="v-tab1" class="v-tab-label">1. A gap between espoused values and actual behaviours</label>
-      <label for="v-tab2" class="v-tab-label">2. Competing commitments</label>
-      <label for="v-tab3" class="v-tab-label">3. Speaking the unspeakable</label>
-      <label for="v-tab4" class="v-tab-label">4. Work avoidance</label>
-  </div>
-
-  <div class="v-tabs-content">
-      
-      <div id="v-content0" class="v-tab-panel" style="font-style: italic; opacity: 0.8; margin-top: 10px;">
-          Click each challenge on the left to find out how to manage it.
-      </div>
-
-      <div id="v-content1" class="v-tab-panel">
-          <p>Adaptive work often means narrowing the gap between espoused and actualised values. Complicating this process is the fact that it requires collective learning while most organisations operate on individual performance and reward structures. Thus, addressing this archetype involves both adaptive learning associated with the gap issue itself and how organisations mobilise members to address the issue.</p>
-      </div>
-
-      <div id="v-content2" class="v-tab-panel">
-          <p>Working to address complex issues often requires negotiating between conflicting values. For example, educational systems increasingly find themselves under pressure to expand enrolments to meet budgetary needs, which may be perceived as competing with the ability to retain high-quality educational experiences.</p>
-          <p>Heifetz et al. (2009) asserted that when competing commitments occur, 'People in authority can resolve the situation perhaps only by making decisions that generate losses for some groups and gains for others' (p. 81). They argue that focusing on win-win solutions is ideal, but is often naive or unrealistic, frequently resulting in resolutions that fall far short of addressing the adaptive challenge.</p>
-          <p>Ultimately, competing commitments necessitate determining what potential losses are perceived, how they differ for different groups and how the group can engage in the learning needed to come to a decision about their commitments.</p>
-      </div>
-
-      <div id="v-content3" class="v-tab-panel">
-          <p>There are often two narratives occurring simultaneously in groups: the public discourse, typically shaped by organisational or interpersonal politics, and what individuals really think but do not share.</p>
-          <p>When the former dictates group processes, adaptive challenges arise and are more difficult to navigate. The ability for individuals to share thoughts that may seem heretical is essential to adaptive work. Sometimes this archetype arises because authorities create contexts in which it is difficult or threatening to challenge the status quo because of power dynamics. Other times, it arises because members of a group simply do not want to publicly acknowledge a reality.</p>
-      </div>
-
-      <div id="v-content4" class="v-tab-panel">
-          <p>This archetype reflects the conscious or unconscious ways in which individuals and groups avoid having to engage in adaptive work. It includes diverting attention away from the real issue and/or displacing responsibility for resolving it.</p>
-          <p><strong>Diverting attention</strong> is typically a benign response involving oversimplification of the issue, distracting with more pressing concerns, using humour to change the focus, or denying the problem even exists.</p>
-          <p><strong>Displacing responsibility</strong>, on the other hand, may be more malicious and involves marginalising those who voice the issue, defaulting blame to authorities alone, scapegoating, or ensuring any progress is derailed (e.g. death by committee, delegation to those lacking authority or competence to move the issue forward). When the archetype of work avoidance emerges, it is a cue that resistance to the adaptive challenge is high.</p>
-      </div>
-
-  </div>
 </div>

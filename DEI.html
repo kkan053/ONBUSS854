@@ -1,0 +1,119 @@
+<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 10px; font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  
+  <style>
+    .dei-card {
+      background-color: transparent;
+      width: 260px;
+      height: 220px;
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .dei-toggle {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* Inner Wrapper */
+    .dei-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .dei-toggle:checked + .dei-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .dei-toggle:focus-visible + .dei-card-inner {
+      outline: 3px solid #5F727A;
+      outline-offset: 4px;
+    }
+
+    .dei-card-front, .dei-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .dei-card-front {
+      background-color: #5F727A;
+      color: white;
+    }
+
+    .dei-card-front h2 {
+      font-size: 80px;
+      margin: 0;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .dei-card-back {
+      background-color: white;
+      color: #5F727A;
+      border: 3px solid #9BAEB7;
+      transform: rotateY(180deg);
+    }
+
+    .dei-card-back p {
+      font-size: 19px;
+      line-height: 1.4;
+      margin: 0;
+      font-weight: 400;
+    }
+  </style>
+
+  <div class="dei-card">
+    <input type="checkbox" id="flip-d" class="dei-toggle">
+    <label for="flip-d" class="dei-card-inner">
+      <div class="dei-card-front">
+        <h2>D</h2>
+      </div>
+      <div class="dei-card-back">
+        <p><strong>Diversity</strong> brings different perspectives, which improves problem-solving and innovation.</p>
+      </div>
+    </label>
+  </div>
+
+  <div class="dei-card">
+    <input type="checkbox" id="flip-e" class="dei-toggle">
+    <label for="flip-e" class="dei-card-inner">
+      <div class="dei-card-front">
+        <h2>E</h2>
+      </div>
+      <div class="dei-card-back">
+        <p><strong>Equity</strong> ensures that talent is recognised and developed fairly, improving performance and strengthening talent pipelines.</p>
+      </div>
+    </label>
+  </div>
+
+  <div class="dei-card">
+    <input type="checkbox" id="flip-i" class="dei-toggle">
+    <label for="flip-i" class="dei-card-inner">
+      <div class="dei-card-front">
+        <h2>I</h2>
+      </div>
+      <div class="dei-card-back">
+        <p><strong>Inclusion</strong> helps employees feel valued, leading to higher engagement, well-being and productivity.</p>
+      </div>
+    </label>
+  </div>
+
+</div>

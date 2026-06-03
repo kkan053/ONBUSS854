@@ -1,0 +1,94 @@
+<div style="font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 960px; margin: 40px auto; text-align: center; color: #5F727A; padding: 40px 30px; background: #fafbfc; border-radius: 12px; box-shadow: 0 4px 15px rgba(95, 114, 122, 0.08); border: 1px solid rgba(155, 174, 183, 0.3);">
+
+  <h2 style="font-size: 24px; margin-bottom: 50px; color: #5F727A; font-weight: bold; letter-spacing: -0.5px;">
+    Where does my organisation sit on the diversity-inclusion continuum?
+  </h2>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+    <span style="background: rgba(155, 174, 183, 0.15); color: #5F727A; padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(155, 174, 183, 0.5);">
+      More towards diversity
+    </span>
+    <span style="background: rgba(95, 114, 122, 0.15); color: #5F727A; padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(95, 114, 122, 0.5);">
+      More towards inclusion
+    </span>
+  </div>
+
+  <div style="position: relative; width: 100%; height: 60px; display: flex; align-items: center;">
+    <input type="range" min="1" max="100" value="50" class="continuum-slider" aria-label="Diversity to Inclusion Continuum" style="width: 100%; margin: 0; padding: 0;">
+  </div>
+
+  <style>
+    .continuum-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      background: transparent;
+      cursor: pointer;
+    }
+    
+    .continuum-slider:focus {
+      outline: none;
+    }
+
+    /* Modern Gradient Track */
+    .continuum-slider::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 12px;
+      background: linear-gradient(90deg, #9BAEB7 0%, #5F727A 100%);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+    }
+    
+    .continuum-slider::-moz-range-track {
+      width: 100%;
+      height: 12px;
+      background: linear-gradient(90deg, #9BAEB7 0%, #5F727A 100%);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    /* Sleek Circular Thumb */
+    .continuum-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 32px; 
+      width: 32px;
+      background: #ffffff;
+      border: 4px solid #5F727A;
+      border-radius: 50%;
+      margin-top: -10px; /* Aligns thumb perfectly with the 12px track */
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .continuum-slider::-moz-range-thumb {
+      height: 32px; 
+      width: 32px;
+      background: #ffffff;
+      border: 4px solid #5F727A;
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+    
+    /* Hover and Focus States */
+    .continuum-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      border-color: #9BAEB7;
+    }
+    .continuum-slider::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      border-color: #9BAEB7;
+    }
+
+    .continuum-slider:focus-visible::-webkit-slider-thumb {
+      border-color: #9BAEB7;
+      box-shadow: 0 0 0 4px rgba(155, 174, 183, 0.4);
+    }
+    .continuum-slider:focus-visible::-moz-range-thumb {
+      border-color: #9BAEB7;
+      box-shadow: 0 0 0 4px rgba(155, 174, 183, 0.4);
+    }
+  </style>
+
+</div>

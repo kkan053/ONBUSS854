@@ -1,0 +1,162 @@
+<div class="interactive-wrapper" style="font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 960px; margin: 40px auto; color: #5F727A; padding: 40px 30px; background: #fafbfc; border-radius: 12px; box-shadow: 0 4px 15px rgba(95, 114, 122, 0.08); border: 1px solid rgba(155, 174, 183, 0.3);">
+
+  <input type="radio" id="q1" name="quote-group" checked hidden>
+  <input type="radio" id="q2" name="quote-group" hidden>
+  <input type="radio" id="q3" name="quote-group" hidden>
+  <input type="radio" id="q4" name="quote-group" hidden>
+  <input type="radio" id="q5" name="quote-group" hidden>
+  <input type="radio" id="q6" name="quote-group" hidden>
+  <input type="radio" id="q7" name="quote-group" hidden>
+  <input type="radio" id="q8" name="quote-group" hidden>
+
+  <div class="quotes-grid">
+    <label for="q1" class="quote-tab">'If I don't do it, someone else will.'</label>
+    <label for="q2" class="quote-tab">'It's for the good of the company.'</label>
+    <label for="q3" class="quote-tab">'It's just business.'</label>
+    <label for="q4" class="quote-tab">'No one is actually getting hurt.'</label>
+    <label for="q5" class="quote-tab">'I'm just following orders.'</label>
+    <label for="q6" class="quote-tab">'Everyone else is doing it.'</label>
+    <label for="q7" class="quote-tab">'I deserve this' / 'They deserve it.'</label>
+    <label for="q8" class="quote-tab">'It's legal, so it must be ethical.'</label>
+  </div>
+
+  <div class="explanation-box">
+    
+    <div class="exp exp1">
+      <strong>'If I don't do it, someone else will.'</strong><br><br>
+      This rationalisation assumes that the ethical breach is inevitable, so the individual or organisation might as well take the benefit. For example, one might argue that because all universities recruit international students, there is no point worrying about the carbon emissions involved in flying them to New Zealand.
+    </div>
+    
+    <div class="exp exp2">
+      <strong>'It's for the good of the company.'</strong><br><br>
+      Individuals justify unethical actions by claiming they are acting in the best interests of shareholders, consumers, owners or employees, for example, to protect jobs or avoid layoffs. This was part of the logic used in the Volkswagen case.
+    </div>
+
+    <div class="exp exp3">
+      <strong>'It's just business.'</strong><br><br>
+      This reflects the belief that the main purpose of business is to make a profit and that consumers are responsible for protecting their own interests, often summed up in the phrase caveat emptor ('let the buyer beware'). For example, in a high-profile case, Westpac faced criticism after tellers allowed an 89-year-old widow to withdraw more than $300,000 in cash across many transactions. Although the bank was cleared of wrongdoing, questions were raised about whether staff should have escalated concerns about her vulnerability (Nichols, 2024). A related rationalisation is, 'They brought it on themselves', which shifts blame to the victim, such as a consumer who did not read the fine print.
+    </div>
+
+    <div class="exp exp4">
+      <strong>'No one is actually getting hurt.'</strong><br><br>
+      Perpetrators convince themselves that their actions, such as misrepresenting data or telling a white lie, are harmless, especially when the damage is delayed or the affected person is anonymous.
+    </div>
+
+    <div class="exp exp5">
+      <strong>'I'm just following orders.'</strong><br><br>
+      This shifts responsibility to a superior, suggesting that if a boss authorised the action, the employee is not accountable. For example, the Royal Commission of Inquiry into Historical Abuse in State Care (2024) found that social workers, caregivers and officials continued to follow policies, regulations and reporting structures that left children in harmful environments.
+    </div>
+
+    <div class="exp exp6">
+      <strong>'Everyone else is doing it.'</strong><br><br>
+      This assumes that if a behaviour is common in the industry, it must be acceptable. For example, a builder might see others on a construction site working without proper personal protective equipment (PPE) and conclude that their own team does not need it either.
+    </div>
+
+    <div class="exp exp7">
+      <strong>'I deserve this' or 'They deserve it.'</strong><br><br>
+      This reflects a sense of entitlement. For example, someone may argue that because the company underpays or mistreats them, taking office supplies home is simply a way of restoring fairness.
+    </div>
+
+    <div class="exp exp8">
+      <strong>'It's legal, so it must be ethical.'</strong><br><br>
+      This common defence assumes that if a behaviour does not break a specific law, it is acceptable, even if it is morally questionable. As discussed above, this also appears in the exploitation of loopholes in tax law or regulation, where people rationalise that taking advantage of a poorly written rule is not wrong.
+    </div>
+
+  </div>
+
+  <style>
+    .quotes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .quote-tab {
+      background: #ffffff;
+      border: 1px solid rgba(155, 174, 183, 0.4);
+      color: #5F727A;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(95, 114, 122, 0.05);
+      user-select: none;
+    }
+
+    .quote-tab:hover {
+      border-color: #9BAEB7;
+      background: rgba(155, 174, 183, 0.1);
+    }
+
+    .explanation-box {
+      background: #ffffff;
+      border: 1px solid rgba(155, 174, 183, 0.3);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 6px 16px rgba(95, 114, 122, 0.06);
+      position: relative;
+    }
+
+    .explanation-box::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 80px;
+      color: rgba(155, 174, 183, 0.15);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .exp {
+      display: none;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #5F727A;
+      position: relative;
+      z-index: 1;
+    }
+
+    .interactive-wrapper input[id="q1"]:checked ~ .quotes-grid label[for="q1"],
+    .interactive-wrapper input[id="q2"]:checked ~ .quotes-grid label[for="q2"],
+    .interactive-wrapper input[id="q3"]:checked ~ .quotes-grid label[for="q3"],
+    .interactive-wrapper input[id="q4"]:checked ~ .quotes-grid label[for="q4"],
+    .interactive-wrapper input[id="q5"]:checked ~ .quotes-grid label[for="q5"],
+    .interactive-wrapper input[id="q6"]:checked ~ .quotes-grid label[for="q6"],
+    .interactive-wrapper input[id="q7"]:checked ~ .quotes-grid label[for="q7"],
+    .interactive-wrapper input[id="q8"]:checked ~ .quotes-grid label[for="q8"] {
+      background: #5F727A;
+      color: #ffffff;
+      border-color: #5F727A;
+      box-shadow: 0 4px 10px rgba(95, 114, 122, 0.2);
+    }
+
+    .interactive-wrapper input[id="q1"]:checked ~ .explanation-box .exp1,
+    .interactive-wrapper input[id="q2"]:checked ~ .explanation-box .exp2,
+    .interactive-wrapper input[id="q3"]:checked ~ .explanation-box .exp3,
+    .interactive-wrapper input[id="q4"]:checked ~ .explanation-box .exp4,
+    .interactive-wrapper input[id="q5"]:checked ~ .explanation-box .exp5,
+    .interactive-wrapper input[id="q6"]:checked ~ .explanation-box .exp6,
+    .interactive-wrapper input[id="q7"]:checked ~ .explanation-box .exp7,
+    .interactive-wrapper input[id="q8"]:checked ~ .explanation-box .exp8 {
+      display: block;
+      animation: fadeUp 0.4s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+</div>

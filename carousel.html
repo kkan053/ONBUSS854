@@ -1,0 +1,150 @@
+<div class="dei-carousel-wrapper">
+  <style>
+    .dei-carousel-wrapper {
+      font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      position: relative;
+      width: 100%;
+      height: 720px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      background-color: #ffffff;
+      border: 3px solid #9BAEB7;
+      margin: 20px auto;
+    }
+
+    .dei-carousel-wrapper input[type="radio"] {
+      display: none;
+    }
+
+    .dei-slides {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .dei-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fafafa;
+    }
+
+    .dei-slide img {
+      height: 720px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    #dei-slide-1:checked ~ .dei-slides .dei-slide:nth-child(1),
+    #dei-slide-2:checked ~ .dei-slides .dei-slide:nth-child(2),
+    #dei-slide-3:checked ~ .dei-slides .dei-slide:nth-child(3),
+    #dei-slide-4:checked ~ .dei-slides .dei-slide:nth-child(4) {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    .dei-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .dei-controls > div {
+      display: none;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    #dei-slide-1:checked ~ .dei-controls .control-group-1,
+    #dei-slide-2:checked ~ .dei-controls .control-group-2,
+    #dei-slide-3:checked ~ .dei-controls .control-group-3,
+    #dei-slide-4:checked ~ .dei-controls .control-group-4 {
+      display: flex;
+    }
+
+    .dei-arrow {
+      pointer-events: auto;
+      cursor: pointer;
+      color: #5F727A;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 60px;
+      user-select: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+      background: transparent;
+      text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+    }
+
+    .dei-arrow:hover {
+      color: #9BAEB7;
+      transform: scale(1.1);
+    }
+
+    .dei-arrow-hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  </style>
+
+  <input type="radio" name="dei-carousel" id="dei-slide-1" checked>
+  <input type="radio" name="dei-carousel" id="dei-slide-2">
+  <input type="radio" name="dei-carousel" id="dei-slide-3">
+  <input type="radio" name="dei-carousel" id="dei-slide-4">
+
+  <ul class="dei-slides">
+    <li class="dei-slide">
+      <img src="https://canvas.aut.ac.nz/courses/22761/files/8080837/download" alt="Poster 1">
+    </li>
+    <li class="dei-slide">
+      <img src="https://canvas.aut.ac.nz/courses/22761/files/8080836/download" alt="Poster 2">
+    </li>
+    <li class="dei-slide">
+      <img src="https://canvas.aut.ac.nz/courses/22761/files/8080838/download" alt="Poster 3">
+    </li>
+    <li class="dei-slide">
+      <img src="https://canvas.aut.ac.nz/courses/22761/files/8080839/download" alt="Poster 4">
+    </li>
+  </ul>
+
+  <div class="dei-controls">
+    <div class="control-group-1">
+      <label for="dei-slide-4" class="dei-arrow dei-arrow-hidden" aria-hidden="true">&#10094;</label>
+      <label for="dei-slide-2" class="dei-arrow" aria-label="Next slide">&#10095;</label>
+    </div>
+    <div class="control-group-2">
+      <label for="dei-slide-1" class="dei-arrow" aria-label="Previous slide">&#10094;</label>
+      <label for="dei-slide-3" class="dei-arrow" aria-label="Next slide">&#10095;</label>
+    </div>
+    <div class="control-group-3">
+      <label for="dei-slide-2" class="dei-arrow" aria-label="Previous slide">&#10094;</label>
+      <label for="dei-slide-4" class="dei-arrow" aria-label="Next slide">&#10095;</label>
+    </div>
+    <div class="control-group-4">
+      <label for="dei-slide-3" class="dei-arrow" aria-label="Previous slide">&#10094;</label>
+      <label for="dei-slide-1" class="dei-arrow dei-arrow-hidden" aria-hidden="true">&#10095;</label>
+    </div>
+  </div>
+</div>
