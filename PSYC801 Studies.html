@@ -1,0 +1,346 @@
+<div class="interactive-wrapper">
+  <style>
+    .interactive-wrapper {
+      font-family: 'Helia Core', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0px auto;
+      color: #5F727A;
+      background: #fafbfc;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(95, 114, 122, 0.08);
+      border: 1px solid rgba(155, 174, 183, 0.3);
+      box-sizing: border-box;
+      height: 750px;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+    .interactive-wrapper input[type="radio"] {
+      display: none;
+    }
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+      padding: 30px;
+    }
+    .home-view {
+      transform: translateX(0);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 20px;
+    }
+    .detail-view {
+      transform: translateX(100%);
+      display: flex;
+      gap: 30px;
+      background: #fafbfc;
+    }
+    .interactive-wrapper #home:checked ~ .slider-container .home-view {
+      transform: translateX(0);
+    }
+    .interactive-wrapper #home:checked ~ .slider-container .detail-view {
+      transform: translateX(100%);
+    }
+    .interactive-wrapper #s1:checked ~ .slider-container .home-view,
+    .interactive-wrapper #s2:checked ~ .slider-container .home-view,
+    .interactive-wrapper #s3:checked ~ .slider-container .home-view,
+    .interactive-wrapper #s4:checked ~ .slider-container .home-view {
+      transform: translateX(-100%);
+    }
+    .interactive-wrapper #s1:checked ~ .slider-container #dv1 { transform: translateX(0); }
+    .interactive-wrapper #s2:checked ~ .slider-container #dv2 { transform: translateX(0); }
+    .interactive-wrapper #s3:checked ~ .slider-container #dv3 { transform: translateX(0); }
+    .interactive-wrapper #s4:checked ~ .slider-container #dv4 { transform: translateX(0); }
+    .bg-1 { background: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; }
+    .bg-2 { background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; }
+    .bg-3 { background: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; }
+    .bg-4 { background: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; }
+    .card {
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(95, 114, 122, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(95, 114, 122, 0.2);
+    }
+    .card-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(95, 114, 122, 0.95) 0%, rgba(95, 114, 122, 0.1) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      transition: background 0.3s ease;
+    }
+    .card:hover .card-inner {
+      background: linear-gradient(to top, rgba(95, 114, 122, 1) 0%, rgba(95, 114, 122, 0.25) 100%);
+    }
+    .card-title {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .left-panel {
+      width: 35%;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .left-tile {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      height: 250px;
+      box-shadow: 0 4px 10px rgba(95, 114, 122, 0.1);
+    }
+    .left-tile .card-inner {
+      background: linear-gradient(to top, rgba(95, 114, 122, 0.9) 0%, rgba(95, 114, 122, 0.3) 100%);
+    }
+    .back-btn {
+      display: inline-block;
+      background: #ffffff;
+      border: 2px solid #9BAEB7;
+      color: #5F727A;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover {
+      background: #5F727A;
+      border-color: #5F727A;
+      color: #ffffff;
+    }
+    .right-content {
+      flex-grow: 1;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(155, 174, 183, 0.3);
+      padding: 30px;
+      overflow-y: auto;
+      box-shadow: 0 4px 15px rgba(95, 114, 122, 0.05);
+    }
+    .right-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .right-content::-webkit-scrollbar-track {
+      background: rgba(196, 210, 216, 0.3);
+      border-radius: 4px;
+    }
+    .right-content::-webkit-scrollbar-thumb {
+      background: #9BAEB7;
+      border-radius: 4px;
+    }
+    .right-content::-webkit-scrollbar-thumb:hover {
+      background: #5F727A;
+    }
+    .right-content h3 {
+      font-size: 22px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #5F727A;
+    }
+    .right-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .right-content p:last-child {
+      margin-bottom: 0;
+    }
+    .watch-box {
+      background: rgba(196, 210, 216, 0.15);
+      border-left: 4px solid #9BAEB7;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .reflect-box {
+      background: #ffffff;
+      border: 1px solid #C4D2D8;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 8px;
+    }
+    .banner-img {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+    }
+    .reflect-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .reflect-box li {
+      font-size: 16px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .right-content a {
+      color: #5F727A;
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .right-content a:hover {
+      color: #9BAEB7;
+    }
+  </style>
+
+  <input type="radio" name="main-slider" id="home" checked>
+  <input type="radio" name="main-slider" id="s1">
+  <input type="radio" name="main-slider" id="s2">
+  <input type="radio" name="main-slider" id="s3">
+  <input type="radio" name="main-slider" id="s4">
+
+  <div class="slider-container">
+    <div class="view home-view">
+      <label for="s1" class="card bg-1">
+        <div class="card-inner">
+          <h2 class="card-title">Dunedin Multidisciplinary Health and Development Study</h2>
+        </div>
+      </label>
+      <label for="s2" class="card bg-2">
+        <div class="card-inner">
+          <h2 class="card-title">Christchurch Health and Development Study</h2>
+        </div>
+      </label>
+      <label for="s3" class="card bg-3">
+        <div class="card-inner">
+          <h2 class="card-title">Pacific Islands Families Study</h2>
+        </div>
+      </label>
+      <label for="s4" class="card bg-4">
+        <div class="card-inner">
+          <h2 class="card-title">Growing Up in New Zealand</h2>
+        </div>
+      </label>
+    </div>
+
+    <div class="view detail-view" id="dv1">
+      <div class="left-panel">
+        <div class="left-tile bg-1">
+          <div class="card-inner">
+            <h2 class="card-title">Dunedin Multidisciplinary Health and Development Study</h2>
+          </div>
+        </div>
+        <label for="home" class="back-btn">&larr; Back to Studies</label>
+      </div>
+      <div class="right-content">
+        <h3>Dunedin Multidisciplinary Health and Development Study</h3>
+        <p>The Dunedin Multidisciplinary Health and Development Study (University of Otago, DMHDRU, n.d.) follows a birth cohort of 1,037 people born in Dunedin in 1972 to 1973, with repeated assessments from infancy into midlife. The study includes detailed data across multiple domains, including physical health, cognitive ability, mental health, personality and social functioning.</p>
+        <p>One of the central constructs examined in this study is self-regulation in early childhood, assessed through behavioural observations and measures of attention, persistence and impulse control. These early patterns are associated with outcomes across adulthood. Individuals with lower self-regulation in childhood are more likely to experience poorer physical health, higher rates of substance use, financial difficulties and involvement in offending, even after accounting for intelligence and socioeconomic background (Poulton et al., 2015).</p>
+        <p>The Dunedin study found that our pathways from childhood to adulthood are not fixed. Changes in environment, education and life opportunities are associated with different outcomes, indicating that early risk increases the likelihood of later difficulties but does not determine them. This study provides strong support for theories of self-regulation and developmental pathways. It demonstrates how early behavioural processes are linked to long-term outcomes while also highlighting the role of context and change across time.</p>
+      </div>
+    </div>
+
+    <div class="view detail-view" id="dv2">
+      <div class="left-panel">
+        <div class="left-tile bg-2">
+          <div class="card-inner">
+            <h2 class="card-title">Christchurch Health and Development Study</h2>
+          </div>
+        </div>
+        <label for="home" class="back-btn">&larr; Back to Studies</label>
+      </div>
+      <div class="right-content">
+        <h3>Christchurch Health and Development Study</h3>
+        <p>The Christchurch Health and Development Study (University of Otago, n.d.) follows a cohort of 1,265 children born in Christchurch in 1977, with repeated assessments from birth into adulthood. The study has focused extensively on exposure to adversity, including family conflict, socioeconomic disadvantage and experiences of abuse.</p>
+        <p>Findings show strong associations between early adversity and later mental health outcomes, including depression, anxiety, substance use and suicidal behaviour (Fergusson et al., 2015). The study also identifies dose-response patterns, where increasing exposure to adversity is associated with progressively higher levels of risk.</p>
+        <p>At the same time, not everyone exposed to adversity experiences poor outcomes. Protective factors, including supportive relationships, educational engagement and later life opportunities, reduce risk and contribute to variation in developmental pathways.</p>
+        <p>This study provides strong evidence for ecological and risk-protective frameworks, showing how environmental conditions shape development across time.</p>
+
+        <div class="watch-box">
+          <img src="https://canvas.aut.ac.nz/courses/22762/files/7763745/download" alt="Mātaki | Watch" class="banner-img">
+          <p>Watch <em>We're Talking Hauora Research Talks 2025: What Happens When Children With ADHD Grow Up</em> by Te Papa Hauora (2025) (8:25), which draws on the Christchurch Health and Development Study. The video focuses on what they found when tracking children with ADHD and years later as adults. As you watch, focus on how early difficulties can affect later well-being and why long-term support matters.</p>
+          <p><a href="https://vimeo.com/1085541814" target="_blank">Watch on Vimeo</a></p>
+        </div>
+
+        <div class="reflect-box">
+          <img src="https://canvas.aut.ac.nz/courses/22762/files/7763768/download" alt="Whakaaroaro | Reflect" class="banner-img">
+          <p>After watching the video, reflect on these questions:</p>
+          <ul>
+            <li>What did the study show about links between childhood ADHD symptoms and later adult outcomes?</li>
+            <li>Why is long-term support important for children who may be at greater developmental risk?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="view detail-view" id="dv3">
+      <div class="left-panel">
+        <div class="left-tile bg-3">
+          <div class="card-inner">
+            <h2 class="card-title">Pacific Islands Families Study</h2>
+          </div>
+        </div>
+        <label for="home" class="back-btn">&larr; Back to Studies</label>
+      </div>
+      <div class="right-content">
+        <h3>Pacific Islands Families Study</h3>
+        <p>The Pacific Islands Families Study (AUT Pacific Health Research Centre, n.d.) follows a cohort of Pacific children born in South Auckland in 2000, with a strong focus on family, culture and health across development. The study includes detailed data on parental health, family functioning, cultural identity and child development outcomes.</p>
+        <p>Findings highlight the importance of collective caregiving, extended family networks and cultural identity in shaping well-being. Strong family cohesion and cultural connectedness are associated with better mental health and social outcomes, even amid socioeconomic challenges.</p>
+        <p>The study also identifies the role of structural conditions, including housing, income and access to services, and shows how these interact with family and cultural contexts to shape developmental pathways.</p>
+        <p>This work extends developmental theory by demonstrating how development is embedded within cultural and relational systems rather than reflecting a single universal model.</p>
+
+        <div class="watch-box">
+          <img src="https://canvas.aut.ac.nz/courses/22762/files/7763745/download" alt="Mātaki | Watch" class="banner-img">
+          <p>Watch <em>Pacific Islands Families Study</em> by Auckland University of Technology (2019) (1:55), which introduces the study and explains how family, culture and community shape development. As you watch, focus on how cultural identity and family relationships support well-being.</p>
+          <p><a href="https://www.youtube.com/watch?v=VGAp_qVNYo0" target="_blank">Watch on YouTube</a><br>
+          <a href="https://phrc.aut.ac.nz/our-research/pacific-islands-families-study" target="_blank">Learn more at AUT</a></p>
+        </div>
+
+        <div class="reflect-box">
+          <img src="https://canvas.aut.ac.nz/courses/22762/files/7763768/download" alt="Whakaaroaro | Reflect" class="banner-img">
+          <p>After watching the video, reflect on these questions:</p>
+          <ul>
+            <li>How can cultural identity and family relationships support children's development?</li>
+            <li>Why is it important for research to be shaped by the communities it aims to support?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="view detail-view" id="dv4">
+      <div class="left-panel">
+        <div class="left-tile bg-4">
+          <div class="card-inner">
+            <h2 class="card-title">Growing Up in New Zealand</h2>
+          </div>
+        </div>
+        <label for="home" class="back-btn">&larr; Back to Studies</label>
+      </div>
+      <div class="right-content">
+        <h3>Growing Up in New Zealand</h3>
+        <p>Growing Up in New Zealand (n.d.) follows a contemporary and ethnically diverse cohort of over 6,800 children born in 2009 and 2010. The study includes detailed data on family structure, cultural identity, health, education and development across childhood.</p>
+        <p>One key contribution is its focus on diverse and changing family environments, including multi-generational households, blended families and varied caregiving arrangements. Findings show that children's development is shaped by the quality and stability of relationships across these contexts rather than by family structure alone.</p>
+        <p>If you're interested in learning more about children's experiences and development in Aotearoa New Zealand, you can explore the key findings from the Growing Up in New Zealand (n.d.) longitudinal study.</p>
+      </div>
+    </div>
+  </div>
+</div>
